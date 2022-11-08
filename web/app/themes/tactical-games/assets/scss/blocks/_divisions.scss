@@ -1,0 +1,11 @@
+.divisions {
+    padding: 5rem 0;
+    background: $gray-200;
+    &__title {
+        padding: 1rem;
+        background: $secondary;
+        color: $white;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+}

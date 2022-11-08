@@ -1,0 +1,74 @@
+.featured-content {
+    overflow: hidden;
+    min-height: 400px;
+
+    &__info {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        @include media-breakpoint-up(md) {
+            padding: 4rem 1rem 4rem 4rem;
+        }
+        position: relative;
+        height: auto;
+        order: 2;
+        @include media-breakpoint-up(md) {
+            height: 100%;
+            min-height: 400px;
+            order: 1;
+        }
+        display: flex;
+        align-items: center;
+        &-content {
+            position: relative;
+            z-index: $z-base-2;
+            @include media-breakpoint-down(md) {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        &::before {
+            position: absolute;
+            top: -5px;
+            left: 3rem;
+            content: '';
+            height: calc(100% + 10px);
+            width: 100%;
+            @extend %skew-horizontal;
+            background: $white;
+            z-index: $z-base-1;
+            @include media-breakpoint-down(md) {
+                display: none;
+            }
+        }
+        &--left {
+            @include media-breakpoint-up(md) {
+                order: 2;
+                padding: 4rem 4rem 4rem 1rem;
+                &::before {
+                    -webkit-transform: rotate(10deg) skew(0, -10deg);
+                    -moz-transform: rotate(10deg) skew(0, -10deg);
+                     -ms-transform: rotate(10deg) skew(0, -10deg);
+                      -o-transform: rotate(10deg) skew(0, -10deg);
+                         transform: rotate(10deg) skew(0, -10deg);
+                    left: -3rem;
+                }
+            }
+        }
+    }
+    &__image {
+        background-size: cover;
+        min-height: 400px;
+        order: 1;
+        @include media-breakpoint-up(md) {
+            order: 2;
+            &--left {
+                @include media-breakpoint-up(md) {
+                    order: 1;
+                }
+            }
+        }
+    }
+    &__title {
+        color: $primary;
+    }
+}

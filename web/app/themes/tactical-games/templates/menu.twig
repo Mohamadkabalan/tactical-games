@@ -1,0 +1,12 @@
+{% if menu %}
+	<ul class="navbar-nav align-items-center">
+	  {% include "partial/menu-items.twig" with {'items': items} %}
+
+		{% if '/cart/' | is_current_url or '/checkout/' | is_current_url or '/tactical-games/web/cart/' | is_current_url or '/tactical-games/web/checkout/' | is_current_url %}
+
+		{% else %}
+			<li class="menu-item-mini-cart">{% include "woo/mini-cart.twig" %}</li>
+		{% endif %}
+
+	</ul>
+{% endif %}

@@ -1,0 +1,34 @@
+{% if is_preview %}
+	<p>Instructors list</p>
+{% endif %}
+
+<div class="event-divisions py-5 bg-white">
+	<div class="container-xl">
+		<div class="row justify-content-center">
+			{% for key, item in instructors %}
+				<div class="col-md-3 col-6">
+					
+						<div class="person-teaser">
+						<a href="{{ item.link }}" class="person-teaser__link">
+							<div class="person-teaser__image">
+								{% if item.thumbnail.src %}
+									<img class="rounded-circle w-100" src="{{ item.thumbnail.src|resize(900,900) }}" alt="{{ item.title }}">
+								{% else %}
+									<img class="rounded-circle w-100" src="{{ theme.link }}/assets/images/person-placeholder.png" alt="{{ item.title }}">
+								{% endif %}
+							</div>
+							</a>
+							<a href="{{ item.link }}" class="person-teaser__link">
+							<p class="person-teaser__name">
+								{{ item.title }}
+							</p>
+							</a>
+							<p class="person-teaser__title">
+								{{ item.person_title }}
+							</p>
+						</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

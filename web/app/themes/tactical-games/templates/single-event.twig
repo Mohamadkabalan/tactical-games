@@ -1,0 +1,138 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% if Image(post.meta('hero_image')).src %}
+{% if post.custom.hero_background_position == 'top' %}
+<div class="hero" style="background-image: url({{ Image(post.meta('hero_image')).src }}); background-position: top;">
+{% elseif post.custom.hero_background_position == 'bottom' %}
+<div class="hero" style="background-image: url({{ Image(post.meta('hero_image')).src }}); background-position: bottom;">
+{% else %}
+<div class="hero" style="background-image: url({{ Image(post.meta('hero_image')).src }}); background-position: center;">
+{% endif %}
+
+
+		{% else %}
+			<div class="hero hero__placeholder" style="background-image: url({{ theme.link }}/assets/images/event-hero-placeholder.jpg);">
+			{% endif %}
+			<div class="hero__title-wrapper">
+				<div class="hero__title hero__title--skew">
+					{% for term in post.terms %}
+						<span>{{ term }}</span>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="content-wrapper event-single">
+			<article class="event-type-{{ post.post_type }}" id="event-{{ post.ID }}">
+				<div class="container-xl">
+					<div class="event-single__basic-content">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="event-single__info">
+									<h1 class="article-h1 event-single__title">{{ post.title }}</h1>
+									<!-- <time datetime="{{ post.date|date('Y-m-d H:i:s') }}">{{ post.date }}</time> -->
+
+									<p class="event-single__date">
+										{% if not post.event_to %}
+											{{ post.event_from|date("l F d, Y") }}
+										{% else %}
+											{% if post.event_from|date("F") == post.event_to|date("F") %}
+												{{ post.event_from|date("F d") }}
+												-
+												{{ post.event_to|date("d, Y") }}
+											{% else %}
+												{{ post.event_from|date("F d") }}
+												-
+												{{ post.event_to|date("F d, Y") }}
+											{% endif %}
+										{% endif %}
+									</p>
+
+									<div class="event-single__description">{{ post.meta('event_description') }}</div>
+									{% if post.register_link.title or post.volunteer_link.title or post.event_product %}
+										<div class="event-single__actions">
+											{% if post.event_product %}
+												<a href="/tactical-games-waiver?reg={{ post.event_product }}" class="btn btn-primary me-md-3">Register</a>
+											{% endif %}
+                      {% if post.register_link.title %}
+												<a href="{{ post.register_link.url }}" class="btn btn-primary me-md-3">{{
+										post.register_link.title }}</a>
+											{% endif %}
+											{% if post.volunteer_link.title %}
+												<a href="{{ post.volunteer_link.url }}" class="btn btn-black">{{
+										post.volunteer_link.title }}</a>
+											{% endif %}
+										</div>
+									{% endif %}
+								</div>
+							</div>
+							<div class="col-md">
+								{% if post.thumbnail.src %}
+									<img src="{{ post.thumbnail.src }}" class="event-single__info-image">
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+{% if post.address_map_location.address %}
+				<div class="event-single__address">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col">
+								<div class="event-single__address-info ps-5">
+									<h4 class="event-single__address-title">Location</h4>
+
+									<h4>{{ post.meta('address').venue_name }}</h4>
+									<p>{{ post.address_map_location.street_number }}
+										{{ post.address_map_location.street_name }}</p>
+									<p>{{ post.address_map_location.city }},
+										{{ post.address_map_location.state_short }},
+										{{
+									post.address_map_location.post_code }}</p>
+									<p>{{ post.address_map_location.country }}</p>
+									<strong class="event-single__address-info-google-link">
+										<a href="https://www.google.com/maps/search/?api=1&query={{post.map_location.address | url_encode}}" target="_blank">Open in Google Maps</a>
+									</strong>
+								</div>
+							</div>
+							
+							<div class="col-md-8 pe-md-0">
+								<div
+									class="acf-map">
+
+										{# Setup a link for the user to click on to go to Google Maps for directions #}
+										<strong>
+											<a href="https://www.google.com/maps/search/?api=1&query={{post.address_map_location.address | url_encode}}" target="_blank">Open in Google Maps</a>
+										</strong>
+
+										{# call the map #}
+										<div
+											class="acf-map">
+
+											{# populate the marker at the lat/lng and put the name and address on the marker #}
+											<div class="marker" data-lat="{{post.address_map_location.lat}}" data-lng="{{post.address_map_location.lng}}">
+												<center>
+													<p class="acf-map-marker__title">{{ post.meta('address').venue_name }}</p>
+													<p class="acf-map-marker__text">{{ post.address_map_location.address ~ ", " ~post.meta('address').city ~ ", " ~ " " ~ post.meta('address').state ~ " " ~ post.meta('address').zip_code}}</p>
+												</center>
+											</div>
+
+										</div>
+
+								</div>
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+{% endif %}
+				{{post.content}}
+
+			</article>
+		</div>
+		<!-- /content-wrapper -->
+
+	{% endblock %}

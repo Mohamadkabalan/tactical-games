@@ -1,0 +1,21 @@
+<div class="row gy-0 gx-0">
+    {% for partner in partners %}
+    <div class="col-md-4 bordered-cols__item">
+        <div class="bordered-cols__image partner__image">
+            {% if Image(partner.meta('logo')).src %}
+            <img src="{{Image(partner.meta('logo')).src}}" alt="{{ partner.title }}">
+            {% else %}
+            <img src="{{ theme.link }}/assets/images/partner-default-image.jpg" alt="{{ partner.title }}">
+            {% endif %}
+        </div>
+        <p class="bordered-cols__title partner__title">{{ partner.title }}</p>
+        <p class="bordered-cols__description">{{ partner.description }}</p>
+        {% if partner.website_link %}
+        <a href="{{ partner.website_link }}" class="btn btn-outline-black">Visit Website</a>
+        {% endif %}
+        {% if partner.buy_link %}
+        <a href="{{ partner.buy_link }}" class="btn btn-outline-black">Buy Products</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>

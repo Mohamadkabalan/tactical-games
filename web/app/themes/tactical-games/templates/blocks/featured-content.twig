@@ -1,0 +1,41 @@
+<div class="featured-content">
+	<div class="row align-items-stretch h-100">
+		<div class="col-md-4 featured-content__info {{fields.image_position == 'left' ? 'featured-content__info--left' : ''}}">
+			<div class="featured-content__info-content">
+				<h2 class="featured-content__title">{{ Post(fields.featured_content).title }}</h2>
+				<p>{{ fields.description }}</p>
+				{% if fields.open_in_modal[0] == 'openmodal' %}
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#featuredContentModal{{Post(fields.featured_content).id }}">
+						Learn More
+					</button>
+				{% else %}
+					<a href="{{ Post(fields.featured_content).link }}" class="btn btn-primary">Learn More</a>
+				{% endif %}
+			</div>
+		</div>
+		{% if Post(fields.featured_content).thumbnail %}
+			<div class="col-md-8 featured-content__image {{fields.image_position == 'left' ? 'featured-content__image--left' : ''}}" style="background-image: url({{ Image(Post(fields.featured_content).thumbnail ) }});"></div>
+		{% else %}
+			<div class="col-md-8 featured-content__image {{fields.image_position == 'left' ? 'featured-content__image--left' : ''}}" style="background-image: url({{ theme.link }}/assets/images/featured-content-placeholder.jpg);"></div>
+		{% endif %}
+	</div>
+</div>
+
+{% if fields.open_in_modal[0] == 'openmodal' %}
+	<!-- Modal -->
+	<div class="modal fade" id="featuredContentModal{{Post(fields.featured_content).id }}" tabindex="-1" aria-labelledby="featuredContentModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="featuredContentModalLabel">{{Post(fields.featured_content).title}}</h5>
+					<button type="button" class="modal__btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+				<div class="modal-body">
+					{{Post(fields.featured_content).content}}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

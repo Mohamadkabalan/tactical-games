@@ -1,0 +1,54 @@
+$blue:    #1557BA;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #ED262E;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+$primary:       $red;
+$primary-light: lighten($red, 15%);
+$primary-dark:  darken($red, 15%);
+$secondary:     $blue;
+$secondary-light: lighten($blue, 15%);
+$secondary-dark:  darken($blue, 15%);
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+
+
+/* Z-INDEX Guide */
+
+$z-base-1: 10;
+$z-base-2: 20;
+$z-base-3: 30;
+
+$z-hero: 100;
+
+$z-nav: 200;
+$z-nav-1: 201;
+$z-nav-2: 202;
+
+$z-cart-dialog: 200;
+
+
+/* Section padding */
+$section-padding: 5rem 0;

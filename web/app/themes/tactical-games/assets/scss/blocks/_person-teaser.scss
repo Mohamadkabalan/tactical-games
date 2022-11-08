@@ -1,0 +1,22 @@
+.person-teaser {
+    p {
+        margin-bottom: 0;
+    }
+    &__image {
+        margin-bottom: 1rem;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    &__name {
+        text-align: center;
+        font-weight: $font-bold;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__link {
+        text-decoration: none;
+    }
+}

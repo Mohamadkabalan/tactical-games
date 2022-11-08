@@ -1,0 +1,70 @@
+.highlighted-links {
+    padding: 1rem 0;
+    &__item {
+        min-height: 180px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        text-decoration: none;
+        background-size: cover;
+        &:hover {
+            .highlighted-links__link::after {
+                background: rgba($primary, 0.75);
+                transition: bottom 200ms ease-in;
+            }
+            .highlighted-links__title {
+                margin-bottom: 10%;
+            }
+        }
+        @include media-breakpoint-up(sm) {
+            min-height: 280px;
+        }
+        @include media-breakpoint-up(md) {
+            min-height: 350px;
+        }
+    }
+    &__link {
+        padding: 0.5rem 0.5rem 1rem;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: 150%;
+            background: rgba($black, 0.75);
+            z-index: $z-base-1;
+            @extend %skew-vertical;
+            transition: bottom 200ms ease-in;
+        }
+        @include media-breakpoint-up(sm) {
+            padding: 1rem;
+        }
+        @include media-breakpoint-up(md) {
+            padding: 2rem 2rem 3.5rem;
+        }
+    }
+    &__title {
+        position: relative;
+        z-index: $z-base-2;
+        @extend %skew-vertical;
+        @extend %merit-lg;
+        color: $white;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        font-size: $font-sm;
+        transition: margin-bottom 200ms ease-in;
+        @include media-breakpoint-up(sm) {
+            font-size: $font-md;
+        }
+        @include media-breakpoint-up(md) {
+            font-size: $font-lg;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+.upcoming-events {
+    padding: 5rem 0;
+    background: gray;
+    color: $white;
+    background-image: url('../images/upcoming-events-bg.jpg');
+    background-size: cover;
+    &__title {
+        text-transform: uppercase;
+    }
+    &__carousel-wrapper {
+        margin: 0 -0.5rem;
+        a {
+            text-decoration: none;
+        }
+    }
+    &__item {
+        background: $white;
+        margin: 0 0.5rem;
+        display: block;
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            margin: 0 0 1rem 0;
+        }
+        &-image {
+            img {
+                width: 100%;
+                height: 250px !important;
+                object-fit: cover;
+                object-position: top;
+                @include media-breakpoint-down(sm) {
+                    height: 100px !important;
+                    width: 100px;
+                }
+            }
+        }
+        &-content {
+            padding: 1rem;
+            @include media-breakpoint-down(sm) {
+                padding: 0 0.5rem;
+            }
+        }
+        &-category {
+            margin-bottom: 0;
+            color: $black;
+            font-weight: $font-bold;
+            @include media-breakpoint-down(sm) {
+                font-size: $font-sm;
+            }
+        }
+        &-title {
+            margin-bottom: 0;
+            color: $primary;
+            font-family: $mulish;
+            font-size: $font-lg;
+            font-weight: $font-heavy;
+            line-height: 1.3;
+            @include media-breakpoint-down(sm) {
+                font-size: 1rem;
+            }
+        }
+        &-date {
+            margin-bottom: 0;
+            color: $black;
+            @include media-breakpoint-down(sm) {
+                font-size: $font-sm;
+            }
+        }
+    }
+}

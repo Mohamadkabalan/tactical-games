@@ -1,0 +1,23 @@
+.section-title {
+    text-align: center;
+    position: relative;
+    margin-bottom: 4rem;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background: $gray-500;
+    }
+    &__content {
+        @extend %merit;
+        font-size: $font-xxl;
+        background: $secondary;
+        color: $white;
+        display: inline-block;
+        padding: 1rem 2rem;
+        @extend %skew-title;
+    }
+}

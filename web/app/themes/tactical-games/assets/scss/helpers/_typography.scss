@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Lato:wght@300;400;700;900&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap');
+
+@font-face {
+    font-family: "Merit";
+    src: url("../fonts/merit.woff2") format("woff2"), url("../fonts/merit.woff") format("woff");
+}
+
+$mulish: 'Mulish', sans-serif;
+$merit: 'Merit';
+
+$fontawesome-pro: "Font Awesome 5 Pro";
+
+$font-xxxl: 5rem;
+$font-xxl: 3.5rem;
+$font-xl: 2rem;
+$font-lg: 1.5rem;
+$font-md: 1.25rem;
+$font-sm: 0.875rem;
+
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 700;
+$font-heavy: 900;
+
+.font-xxxl {
+    font-size: $font-xxxl;
+}
+.font-xxl {
+    font-size: $font-xxl;
+}
+.font-xl {
+    font-size: $font-xl;
+}
+.font-lg {
+    font-size: $font-lg;
+}
+.font-md {
+    font-size: $font-md;
+}
+.font-sm {
+    font-size: $font-sm;
+}
+
+
+%merit-lg {
+    font-family: $merit;
+    font-size: 2.5rem;
+}
+
+%merit-xl {
+    font-family: $merit;
+    font-size: 4rem;
+}
+
+%merit {
+    font-family: $merit;
+    line-height: 1;
+}
+
+/* Title skew */
+%skew-title {
+    -webkit-transform: rotate(-7deg) skew(-7deg, 0);
+    -moz-transform: rotate(-7deg) skew(-7deg, 0);
+     -ms-transform: rotate(-7deg) skew(-7deg, 0);
+      -o-transform: rotate(-7deg) skew(-7deg, 0);
+         transform: rotate(-7deg) skew(-7deg, 0);
+}
+
+%skew-vertical {
+    -webkit-transform: rotate(-7deg) skew(-7deg, 0);
+    -moz-transform: rotate(-7deg) skew(-7deg, 0);
+     -ms-transform: rotate(-7deg) skew(-7deg, 0);
+      -o-transform: rotate(-7deg) skew(-7deg, 0);
+         transform: rotate(-7deg) skew(-7deg, 0);
+}
+
+%skew-horizontal {
+    -webkit-transform: rotate(-10deg) skew(0, 10deg);
+    -moz-transform: rotate(-10deg) skew(0, 10deg);
+     -ms-transform: rotate(-10deg) skew(0, 10deg);
+      -o-transform: rotate(-10deg) skew(0, 10deg);
+         transform: rotate(-10deg) skew(0, 10deg);
+}
+
+%skew-horizontal-flip {
+    -webkit-transform: rotate(10deg) skew(0, -10deg);
+    -moz-transform: rotate(10deg) skew(0, -10deg);
+     -ms-transform: rotate(10deg) skew(0, -10deg);
+      -o-transform: rotate(10deg) skew(0, -10deg);
+         transform: rotate(10deg) skew(0, -10deg);
+}

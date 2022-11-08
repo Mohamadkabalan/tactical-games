@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-woocommerce",
+    "description": "Formidable Woocommerce",
+    "type": "wordpress-plugin",
+    "require": {}
+}

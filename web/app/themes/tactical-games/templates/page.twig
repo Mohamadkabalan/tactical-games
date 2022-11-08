@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+{% if post.thumbnail.src %}
+
+{% if post.custom.hero_background_position == 'top' %}
+<div class="hero page__hero" style="background-image: url({{ post.thumbnail.src }}); background-position: top">
+{% elseif post.custom.hero_background_position == 'bottom' %}
+<div class="hero page__hero" style="background-image: url({{ post.thumbnail.src }}); background-position: bottom">
+{% else %}
+<div class="hero page__hero" style="background-image: url({{ post.thumbnail.src }}); background-position: center">
+{% endif %}
+
+	{% else %}
+	<div class="hero page__hero hero__placeholder"
+		style="background-image: url({{ theme.link }}/assets/images/event-hero-placeholder.jpg);">
+		{% endif %}
+		<div class="hero__title-wrapper">
+			<div class="hero__title hero__title--skew">
+				<span>{{ post.title }}</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="page content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+	{% endblock %}

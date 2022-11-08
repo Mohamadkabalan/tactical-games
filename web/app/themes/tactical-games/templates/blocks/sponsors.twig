@@ -1,0 +1,20 @@
+{% if is_preview %}
+	<p>Sponsors List</p>
+{% endif %}
+
+<div class="sponsors py-5 bg-gray-100">
+	<div class="container-xl">
+    <h3 class="text-center mb-5">Sponsors</h3>
+		<div class="sponsors__list">
+			{% for key, item in sponsors %}
+					<div class="sponsor-teaser__image">
+						{% if item.thumbnail.src %}
+							<img src="{{ item.thumbnail.src }}" alt="{{ item.title }}">
+						{% else %}
+							<img src="{{ theme.link }}/assets/images/person-placeholder.png" alt="{{ item.title }}">
+						{% endif %}
+					</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>

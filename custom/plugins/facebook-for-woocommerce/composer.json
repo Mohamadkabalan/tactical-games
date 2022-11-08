@@ -1,0 +1,6 @@
+{
+    "name": "me/facebook-for-woocommerce",
+    "description": "Facebook for WooCommerce",
+    "type": "wordpress-plugin",
+    "require": {}
+}

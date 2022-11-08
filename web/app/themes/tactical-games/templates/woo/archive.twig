@@ -1,0 +1,87 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+{% if page.thumbnail.src %}
+
+  {% if page.custom.hero_background_position == 'top' %}
+  <div class="hero page__hero" style="background-image: url({{ page.thumbnail.src }}); background-position: top">
+  {% elseif page.custom.hero_background_position == 'bottom' %}
+  <div class="hero page__hero" style="background-image: url({{ page.thumbnail.src }}); background-position: bottom">
+  {% else %}
+  <div class="hero page__hero" style="background-image: url({{ page.thumbnail.src }}); background-position: center">
+  {% endif %}
+
+{% else %}
+	<div class="hero page__hero hero__placeholder"
+		style="background-image: url({{ theme.link }}/assets/images/event-hero-placeholder.jpg);">
+{% endif %}
+  <div class="hero__title-wrapper">
+    <div class="hero__title hero__title--skew">
+      <span>Shop</span>
+    </div>
+  </div>
+</div>
+
+<div class="wc-archive">
+
+  <div class="container-xl">
+    {# breadcrumb #}
+    <div>
+
+      {# {% do action('woocommerce_before_main_content') %} #}
+
+      {# results and orderby #}
+
+    </div>
+    <div class="wc-archive__content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="wc-archive__content-filter pe-0 pe-md-5">
+            <div class="wc-archive__tools">
+              {% do action('woocommerce_before_shop_loop') %}
+            </div>
+            {# filters #}
+            {% filter shortcodes %}
+            [woof sid="auto_shortcode" autohide=0]
+            {% endfilter %}
+          </div>
+        </div>
+        <div class="col-md">
+          {# products list #}
+          {# {% if products|length == 0 %}
+          <p>No products yet</p>
+          {% else %}
+
+          {% for post in products %}
+          {% include ["woo/tease-product.twig"] %}
+          {% endfor %}
+
+          {% do action('woocommerce_after_shop_loop') %}
+
+          {% endif %} #}
+
+          {% filter shortcodes %}
+            [woof_products per_page=12 columns=4 is_ajax=1]
+          {% endfilter %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    {% do action('woocommerce_after_main_content') %}
+  </div>
+</div>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterCheckbox = document.getElementsByClassName('woof_container_inner').innerHTML;
+    for (i = 0; i < filterCheckbox.length; i++) {
+      filterCheckbox.replace("&nbsp;&nbsp;", "");
+      console.log("deleting spaces " + filterCheckbox);
+    }
+  });
+</script>
+{% endblock %}

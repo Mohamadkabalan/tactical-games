@@ -1,0 +1,47 @@
+.wc-tease-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    &__title {
+        margin: 0;
+        line-height: 1.2;
+        padding: .5em 0;
+        a {
+            text-decoration: none;
+            font-family: $mulish;
+            font-weight: 700;
+        }
+    }
+    .price {
+        font-family: $mulish;
+        margin-bottom: 0.5rem;
+    }
+    .star-rating {
+        color: $primary;
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+.woocommerce {
+    ul.products {
+        li.product {
+            a {
+                img {
+                    margin: 0 !important;
+                }
+            }
+            .star-rating {
+                margin: 0 auto;
+                margin-bottom: 0.5rem;
+            }
+            .onsale {
+                width: 60px;
+                height: 60px;
+                background: $primary;
+            }
+        }
+    }
+}

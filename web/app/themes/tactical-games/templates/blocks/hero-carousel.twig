@@ -1,0 +1,43 @@
+<div id="heroCarousel" class="hero-carousel carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for item in fields.images %}
+        {% if loop.first %}
+        <div class="carousel-item active">
+            {% else %}
+            <div class="carousel-item">
+                {% endif %}
+                <img src="{{ item.image }}" class="d-block w-100" alt="...">
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div class="hero-carousel__wrapper">
+            <div class="hero-carousel__title-wrapper">
+                {# {% for item in fields.title %}
+                <div
+                    class="hero-carousel__title-row {{ fields.title|length == 1 ? 'hero-carousel__title--one' : '' }} {{ fields.title|length == 2 ? 'hero-carousel__title--two' : '' }}">
+                    <h1 class="hero-carousel__title">{{ item.title_line}}</h1>
+                </div>
+                {% endfor %} #}
+
+                <div class="hero-carousel__title-no-off-season">
+                    <img src="{{ theme.link }}/assets/images/no-off-season-red.png" alt="No Off Season...">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            document.getElementsByClassName('hero-carousel').carousel({
+                pause: "false"
+            });
+        });
+    </script>

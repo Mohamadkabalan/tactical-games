@@ -1,0 +1,20 @@
+<div class="row gy-0 gx-0">
+	{% for deal in deals %}
+		<div class="col-md-4 bordered-cols__item">
+			<div class="bordered-cols__image">
+				{% if Image(deal.meta('image')).src %}
+					<img src="{{Image(deal.meta('image')).src}}" alt="{{ deal.title }}">
+				{% else %}
+					<img src="{{ theme.link }}/assets/images/deal-default-image.jpg" alt="{{ deal.title }}">
+				{% endif %}
+			</div>
+			<p class="bordered-cols__title">{{ deal.title }}</p>
+			<p class="bordered-cols__code">Use Code
+				<span>{{ deal.promotional_code }}</span>
+			</p>
+			<p class="bordered-cols__discount">For
+				{{ deal.discount }}
+				% OFF</p>
+		</div>
+	{% endfor %}
+</div>

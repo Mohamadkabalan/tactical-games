@@ -1,0 +1,108 @@
+{% block content %}
+
+    <div class="l-cs">
+        <main role="main">
+            <div class="thankyou py-5">
+                <div class="container-xl">
+            {% if order == true %}
+                {% if status == 'failed' %}
+                    <h1 class="main__header">
+                       Something went wrong
+                    </h1>
+
+                    <div class="main__content">
+                        <p>Something went wrong while attempting to process your order. Please Try again.</p>
+
+                        <p>
+                            <a href="{{ payment_url }}" title="Opnieuw proberen te betalen" class="btn btn--primary">
+                                Try Again
+                            </a>
+                        </p>
+                    </div>
+                {% else %}
+
+                    <h1 class="main__header text-primary">
+                        Thank you for your order
+                    </h1>
+
+                    <div class="main__content">
+                        <p>We have received your order and have sent a connfirmation email to {{ email }}.</p>
+                        <div class="l-container">
+                            <div class="l-g4">
+                                <section class="woocommerce-order-overview">
+                                    <h2 class="woocommerce-order-overview__title">
+                                        Order Information
+                                    </h2>
+                                    <table class="table" cellspacing="0">
+                                        <tr>
+                                            <td>
+                                                Order Number:
+                                            </td>
+                                            <td>
+                                                {{ ordernumber }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Date:
+                                            </td>
+                                            <td>
+                                                {{ date }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                E-mail:
+                                            </td>
+                                            <td>
+                                                {{ email }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Total:
+                                            </td>
+                                            <td>
+                                                {{ total }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Payment Method:
+                                            </td>
+                                            <td>
+                                                {{ payment_method_title }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </section>
+
+                                {% do
+                                    action('woocommerce_thankyou_'.payment_method, order_id) %}
+                                {% do
+                                    action('woocommerce_thankyou', order_id) %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% else %}
+
+                <h1 class="main__header">
+                    Thank you for your order!
+                </h1>
+
+                <div class="main__content">
+                    <p>We have received your order.</p>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+
+        </main>
+
+    </div>
+
+{% endblock %}

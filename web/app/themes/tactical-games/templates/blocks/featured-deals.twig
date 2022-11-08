@@ -1,0 +1,24 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+    <p>I will only appear in the editor.</p>
+{% endif %}
+
+<h1>Featured Deals here</h1>
+
+<ul>
+{% for item in fields.featured_deal %}
+    <li>
+        <img src="{{item.image}}" alt="">
+        <p>{{ title }}</p>
+        <p>{{ item.promotional_code }}</p>
+        <p>{{ item.discount }}</p>
+    </li>
+{% endfor %}
+</ul>

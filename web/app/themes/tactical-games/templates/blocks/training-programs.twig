@@ -1,0 +1,110 @@
+{% if is_preview %}
+	<h3>Add Training Programs</h3>
+{% endif %}
+<div class="training-programs">
+	{% if fields.title or fields.description %}
+		<div class="container-xl pb-4">
+			{% if fields.title %}
+				<h3 class="training-programs__title">{{ fields.title }}</h3>
+			{% endif %}
+			{% if fields.description %}
+				<p class="training-programs__description">{{ fields.description }}</p>
+			{% endif %}
+		</div>
+	{% endif %}
+	<div class="highlighted-links">
+		<div class="container-xl">
+			<div class="row gx-3 gy-3 justify-content-center">
+				{% for key, item in training_programs %}
+
+
+			<div class="col-md-4 mb-4">
+					<div class="upcoming-events__item">
+						<div class="upcoming-events__item-image">
+							{% if Image(item.thumbnail).src %}
+							<img src="{{Image(item.thumbnail).src|resize(580,500) }}" alt="">
+							{% else %}
+							<img src="{{ theme.link }}/assets/images/division-placeholder.jpg" alt="">
+							{% endif %}
+						</div>
+						<div class="upcoming-events__item-content">
+							<p class="upcoming-events__item-category">
+								{% for term in item.terms %}
+								{{ term }}
+								{% endfor %}
+							</p>
+							<p class="upcoming-events__item-title">{{ item.title }}</p>
+							<p class="upcoming-events__item-date">{{ item.preview }}</p>
+              <div class="d-grid gap-2">
+                <a href="{{ item.link }}" class="btn btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#programContentModal{{item.id }}">Learn More</a>
+              </div>
+						</div>
+					</div>
+			</div>
+
+
+      <div class="modal fade" id="programContentModal{{ item.id }}" tabindex="-1" aria-labelledby="programContentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="programContentModalLabel">{{ item.title }}</h5>
+              <button type="button" class="modal__btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col">
+                  {{item.content}}
+                </div>
+                <div class="col-auto">
+
+                  {% if item.lead_coach %}
+                    <a href="{{ Post(item.lead_coach).link }}" class="training-programs__modal-instructor">
+                      {% if Post(item.lead_coach).thumbnail %}
+                        <img src="{{ Post(item.lead_coach).thumbnail }}" alt="{{ Post(item.lead_coach).title }}">
+                      {% else %}
+                        <img src="{{ theme.link }}/assets/images/person-placeholder.png" alt="{{ Post(item.lead_coach).title }}">
+                      {% endif %}
+                      <div class="training-programs__modal-instructor-name">
+                        <span>Lead Coach</span>
+                        <p>{{ Post(item.lead_coach).title }}</p>
+                      </div>
+                    </a>
+                  {% endif %}
+                  {% if item.levels|length > 0 %}
+                    <div class="training-programs__modal-levels">
+                      <p>Athlete Levels</p>
+                      {% if item.levels|length == 5 %}
+                        <p class="training-programs__modal-levels-selected">All</p>
+                      {% else %}
+                        {% for item in item.levels %}
+                          <p class="training-programs__modal-levels-selected">{{item}}</p>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  {% if item.price %}
+                    <p class="training-programs__modal-price">{{item.price}}</p>
+                  {% endif %}
+
+                  {% if item.purchase_link.title and item.purchase_link.url %}
+                    <a href="{{ item.purchase_link.url }}" target="{{ item.purchase_link.target }}" class="btn btn-primary mt-3">{{ item.purchase_link.title }}</a>
+                  {% endif %}
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>

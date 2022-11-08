@@ -1,0 +1,35 @@
+{#
+/**
+ * Block Name: Example block
+ *
+ * This is the template that displays the example block.
+ */
+#}
+
+{% if is_preview %}
+	<h2 class="text-primary">I will only appear in the editor.</h2>
+{% endif %}
+
+<div id="example-{{ block.id }}" class="wrapper meet-the-girls">
+	<h2 class="text-white text-center mb-5">Meet the girls</h2>
+	
+  <div class="container-xl px-4">
+    <div class="row gx-5 gy-5 justify-content-center">
+    {% for girl in girls %}
+      <div class="col-md-4 col-lg-3">
+        <div class="meet-the-girls__item">
+          <!-- <a href="{{ girl.profile_link_field }}"><img src="{{ girl.thumbnail.src|resize(1200, 300) }}"></a> -->
+          <a href="{{ girl.link }}" class="meet-the-girls__item-link">
+            <div class="meet-the-girls__item-picture"><img src="{{Image(girl.meta('profile_picture')).src}}" alt="{{ girl.title }}"></div>
+          <h2 class="meet-the-girls__item-title">{{ girl.title }}</h2>
+          </a>
+          <p class="meet-the-girls__item-description">{{girl.description}}</p>
+          <a href="{{ girl.link }}" class="btn btn-outline-white">View More</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+

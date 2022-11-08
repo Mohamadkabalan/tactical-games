@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-registration",
+    "description": "Formidable Registration",
+    "type": "wordpress-plugin",
+    "require": {}
+}

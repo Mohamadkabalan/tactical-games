@@ -1,0 +1,34 @@
+<div id="testimonialsCarousel" class="testimonals-carousel carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for item in fields.testimonials %}
+            {% if loop.first %}
+            <div class="carousel-item active">
+            {% else %}
+            <div class="carousel-item">
+            {% endif %}
+                <div class="testimonals-carousel__item">
+                    <img src="{{ Image(Post(item.testimonial_post).thumbnail ) }}" alt="Testimonial" class="testimonals-carousel__image">
+                    <div class="container-xl">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="testimonals-carousel__item-content">
+                                    <h2 class="testimonals-carousel__quotes">&ldquo;&rdquo;</h2>
+                                    <h2 class="testimonals-carousel__name">&ldquo;{{ Post(item.testimonial_post).quote }}&rdquo;</h2>
+                                    <h2 class="testimonals-carousel__testimonial">-{{ Post(item.testimonial_post).person }}</h2>            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

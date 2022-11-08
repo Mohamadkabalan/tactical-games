@@ -1,0 +1,18 @@
+{#
+/**
+* Block Name: Example block
+*
+* This is the template that displays the example block.
+*/
+#}
+
+{% if is_preview %}
+<p>I will only appear in the editor.</p>
+{% endif %}
+
+
+<div class="container-xl">
+    <div class="featured-title">
+        <p class="featured-title__title">{{ fields.title }}</p>
+    </div>
+</div>

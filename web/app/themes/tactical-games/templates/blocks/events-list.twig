@@ -1,0 +1,57 @@
+<div class="events-list py-5">
+	<div class="container-xl">
+		<div class="row">
+			{% if events|length == 0 %}
+
+				{% if fields.no_events_message %}
+				<p class="text-center">{{ fields.no_events_message }}</p>
+				{% else %}
+					<p class="text-center">No events at this moment</p>
+				{% endif %}
+			
+			{% else %}
+				
+			{% for item in events %}
+
+				<div class="col-md-3">
+					<a href="{{ item.link }}">
+						<div class="upcoming-events__item">
+							<div class="upcoming-events__item-image">
+								{% if Image(item.thumbnail).src %}
+								<img src="{{Image(item.thumbnail).src|resize(580,500) }}" alt="{{ item.title }}">
+								{% else %}
+								<img src="{{ theme.link }}/assets/images/event-teaser-placeholder.png" alt="{{ item.title }}">
+								{% endif %}
+							</div>
+							<div class="upcoming-events__item-content">
+								<p class="upcoming-events__item-category">
+									{% for term in item.terms %}
+									{{ term }}
+									{% endfor %}
+								</p>
+								<p class="upcoming-events__item-title">{{ item.title }}</p>
+								<p class="upcoming-events__item-date">
+											{% if not item.event_to %}
+												{{ item.event_from|date("l F d, Y") }}
+											{% else %}
+												{% if item.event_from|date("F") == item.event_to|date("F") %}
+													{{ item.event_from|date("F d") }}
+													-
+													{{ item.event_to|date("d, Y") }}
+												{% else %}
+													{{ item.event_from|date("F d") }}
+													-
+													{{ item.event_to|date("F d, Y") }}
+												{% endif %}
+											{% endif %}
+								</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+			{% endfor %}
+			{% endif %}
+		</div>
+	</div>
+</div>

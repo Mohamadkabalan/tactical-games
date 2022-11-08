@@ -1,0 +1,11 @@
+{% if menu %}
+<ul class="navbar-nav align-items-center navbar-nav__right">
+	{% for item in right_item_menu.items %}
+	<li class="nav-item">
+		<a class="nav-link" href="{{ item.link }}">
+			<i class="far fa-calendar-star me-2"></i>{{ item.title }}
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}

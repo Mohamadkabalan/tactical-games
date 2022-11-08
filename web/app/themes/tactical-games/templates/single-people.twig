@@ -1,0 +1,54 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<div class="hero hero-person hero__placeholder" style="background-image: url({{ theme.link }}/assets/images/event-hero-placeholder.jpg);">
+	<div class="container-xl">
+		<div class="row align-items-end">
+			<div class="col-md-4">
+				{% if post.thumbnail.src %}
+				<img src="{{ post.thumbnail.src }}" class="hero-person__image w-100">
+				{% else %}
+				<img src="{{ theme.link }}/assets/images/person-placeholder.png" class="hero-person__image w-100">
+				{% endif %}
+			</div>
+			<div class="col">
+				<h2 class="hero-person__title">
+					{{ post.title }}
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="content-wrapper people-single">
+	<article class="event-type-{{ post.post_type }}" id="event-{{ post.ID }}">
+		<div class="container-xl">
+			<div class="people-single__basic-content">
+				<div class="row">
+					<div class="col">
+						{{post.content}}
+					</div>
+					{% if post.meta('achievements')|length > 0 %}
+					<div class="col-md-4">
+						<ul class="people-single__achievements">
+							{% for item in post.meta('achievements') %}
+							<li class="mb-2">
+								<div class="row g-0">
+									<div class="col-auto"><i class="far fa-star me-3"></i></div>
+									<div class="col">
+										<p class="fw-bold">{{ item.achievement }}</p>
+									</div>
+								</div>
+							</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</article>
+</div><!-- /content-wrapper -->
+
+{% endblock %}

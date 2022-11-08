@@ -1,0 +1,50 @@
+{% if is_preview %}
+<p>Event Divisions Block</p>
+{% endif %}
+
+<div class="event-divisions py-5 bg-gray-100">
+    <div class="container-xl">
+        <div class="row align-items-center">
+            <div class="col-md-auto pe-md-5">
+                <h3 class="event-divisions__title">Divisions</h3>
+            </div>
+            <div class="col-md">
+                <div class="row">
+                    {% for key, item in fields.event_divisions %}
+
+                    <div class="col-md-4">
+                        <div class="event-divisions__item"
+                            style="background-image: url({{ Post(item).thumbnail.src|resize(900,900) }});" data-bs-toggle="modal"
+                            data-bs-target="#divisionModal{{key}}">
+                            <p class="event-divisions__item-title">{{ Post(item.event_division).title }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="divisionModal{{key}}" tabindex="-1"
+                        aria-labelledby="divisionModal{{key}}Label" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="divisionModal{{key}}Label">{{
+                                        Post(item.event_division).title }}</h5>
+                                    <button type="button" class="modal__btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"><i class="fas fa-times"></i></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ Post(item.event_division).content }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

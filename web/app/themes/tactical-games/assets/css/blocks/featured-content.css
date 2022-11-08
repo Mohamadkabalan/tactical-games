@@ -1,0 +1,8 @@
+.featured-content__info {
+  padding: 4rem 0 4rem 4rem;
+  position: relative; }
+  .featured-content__info::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%; }

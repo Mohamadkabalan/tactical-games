@@ -1,0 +1,32 @@
+{# {% for item in items %}
+
+
+   <li class="{{ item.classes | join(' ') }} nav-item">
+    <a target="{{ item.target }}" href="{{ item.link }}" class="nav-link">{{ item.title }}</a>
+    {% include "partial/menu-items.twig" with {'items': item.children} %}
+  </li> 
+{% endfor %}#}
+
+{% for item in menu.items %}
+  <li class="nav-item {{ item.classes|join(' ') }}">
+    <a class="nav-link" href="{{ item.link }}" target="{{ item.target }}">{{ item.title }}</a>
+    {% if item.children %}
+      <ul class="nav-drop nav-drop__level-one">
+        {% for child in item.children %}
+          <li class="nav-drop-item {% if child.children %}has-more-children{% endif %}">
+            <a href="{{ child.link }}">{{ child.title }}</a>
+            {% if child.children %}
+              <ul class="nav-drop nav-drop__level-two">
+                {% for subchild in child.children %}
+                  <li class="nav-drop-item">
+                    <a href="{{ subchild.link }}">{{ subchild.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </li>
+{% endfor %}

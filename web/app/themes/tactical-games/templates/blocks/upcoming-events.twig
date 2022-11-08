@@ -1,0 +1,71 @@
+<div class="upcoming-events">
+	<div
+		class="container-fluid">
+		{# <pre>{{ dump(events[0]) }}</pre> #}
+		<div class="row">
+			<div class="col-md-4 ps-md-5 mb-5 mb-md-0">
+				<h2 class="upcoming-events__title">Upcoming Events</h2>
+				<p class="upcoming-events__subtitle">The Tactical games provides a venue for all shooters and athletes
+										                    to compete.</p>
+				<a href="/events" class="btn btn-outline-white">See All</a>
+			</div>
+			<div class="col-md-8">
+				<div class="upcoming-events__carousel-wrapper">
+					<div class="jcarousel-wrapper">
+						<div class="jcarousel">
+							<ul>
+								{% for item in events %}
+									<li>
+                    <a href="{{ item.link }}">
+										<div class="upcoming-events__item">
+											<div class="upcoming-events__item-image">
+												{% if Image(item.thumbnail).src %}
+													<img src="{{Image(item.thumbnail).src|resize(630,500) }}" alt="{{ item.title }}">
+												{% else %}
+													<img src="{{ theme.link }}/assets/images/event-teaser-placeholder.png" alt="{{ item.title }}">
+												{% endif %}
+											</div>
+											<div class="upcoming-events__item-content">
+												<p class="upcoming-events__item-category">
+													{% for term in item.terms %}
+														{{ term }}
+													{% endfor %}
+												</p>
+												<p class="upcoming-events__item-title">{{ item.title }}</p>
+												<p class="upcoming-events__item-date">
+										{% if not item.event_to %}
+											{{ item.event_from|date("l F d, Y") }}
+										{% else %}
+											{% if item.event_from|date("F") == item.event_to|date("F") %}
+												{{ item.event_from|date("F d") }}
+												-
+												{{ item.event_to|date("d, Y") }}
+											{% else %}
+												{{ item.event_from|date("F d") }}
+												-
+												{{ item.event_to|date("F d, Y") }}
+											{% endif %}
+										{% endif %}
+												</p>
+											</div>
+										</div>
+                    </a>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+
+						<a href="#" class="jcarousel-control-prev">
+							<i class="fas fa-arrow-left"></i>
+						</a>
+						<a href="#" class="jcarousel-control-next">
+							<i class="fas fa-arrow-right"></i>
+						</a>
+
+						<p class="jcarousel-pagination"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

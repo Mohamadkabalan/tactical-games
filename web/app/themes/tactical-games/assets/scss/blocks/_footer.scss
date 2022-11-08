@@ -1,0 +1,36 @@
+.footer {
+    padding: $section-padding;
+    background: $black;
+    color: $white;
+    &__links-list {
+        padding-left: 0;
+        list-style: none;
+        &-title {
+            font-weight: $font-bold;
+        }
+        a {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+    &__social-links {
+        text-align: right;
+        a {
+            text-decoration: none;
+            color: $white;
+            font-size: 2rem;
+            margin-left: 0.5rem;
+        }
+    }
+    &__logo {
+        img {
+            filter: grayscale(100%);
+        }
+    }
+    &__bottom {
+        text-align: center;
+        padding-top: 1.5rem;
+        margin-top: 1.5rem;
+        border-top: 1px solid $gray-500;
+    }
+}

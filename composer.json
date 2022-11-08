@@ -1,0 +1,184 @@
+{
+  "name": "roots/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate with modern development tools, easier configuration, and an improved folder structure",
+  "homepage": "https://roots.io/bedrock/",
+  "authors": [
+    {
+      "name": "Scott Walkinshaw",
+      "email": "scott.walkinshaw@gmail.com",
+      "homepage": "https://github.com/swalkinshaw"
+    },
+    {
+      "name": "Ben Word",
+      "email": "ben@benword.com",
+      "homepage": "https://github.com/retlehs"
+    }
+  ],
+  "keywords": [
+    "bedrock",
+    "composer",
+    "roots",
+    "wordpress",
+    "wp",
+    "wp-config"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "https://discourse.roots.io/category/bedrock"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*"
+      ]
+    },
+    {
+      "type": "path",
+      "url": "custom/plugins/*",
+      "options": {
+        "symlink": false
+      }
+    },
+    {
+      "type": "composer",
+      "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/strickdj/acf-field-address"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-pro.git"
+    },
+    {
+        "type": "git",
+        "url": "git@gitlab.com:devvly-wp-plugins/formidable-woocommerce.git"
+    },
+    {
+        "type": "git",
+        "url": "git@gitlab.com:devvly-wp-plugins/formidable-signature.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-locations.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-autoresponder.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-export-view.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-views.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/formidable-registration.git"
+    },
+    {
+      "type": "git",
+      "url": "git@gitlab.com:devvly-wp-plugins/woocommerce-gift-cards.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "motopress/getwid",
+        "type": "wordpress-plugin",
+        "version": "1.7.5",
+        "dist": {
+          "type": "zip",
+          "url": "https://motopress.com/wp-content/uploads/2021/10/getwid-1.7.5.zip"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers": "^1.8",
+    "vlucas/phpdotenv": "^5.2",
+    "oscarotero/env": "^2.1",
+    "roots/bedrock-autoloader": "^1.0",
+    "roots/wordpress": "^5.8.0",
+    "roots/wp-config": "^1.0.0",
+    "roots/wp-password-bcrypt": "^1.1.0",
+    "wpackagist-plugin/woocommerce": "^6.2.1",
+    "me/twoa_commerce": "^2.3",
+    "motopress/getwid": "^1.7.5",
+    "wpackagist-plugin/kadence-blocks": "^2.0",
+    "wpackagist-plugin/timber-library": "^1.18",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
+    "wpackagist-plugin/wordpress-seo": "^17.0",
+    "wpackagist-plugin/google-site-kit": "^1.39",
+    "wpackagist-plugin/disable-comments": "^2.1",
+    "hellonico/timber-dump-extension": "^1.0",
+    "wpackagist-plugin/formidable": "^5.0",
+    "devvly-wp-plugins/formidable-pro": "dev-master",
+    "devvly-wp-plugins/formidable-woocommerce": "dev-master",
+    "devvly-wp-plugins/formidable-signature": "dev-master",
+    "devvly-wp-plugins/formidable-locations": "dev-master",
+    "devvly-wp-plugins/formidable-autoresponder": "dev-master",
+    "devvly-wp-plugins/formidable-registration": "dev-master",
+    "devvly-wp-plugins/formidable-export-view": "dev-master",
+    "devvly-wp-plugins/formidable-views": "dev-master",
+    "devvly-wp-plugins/woocommerce-gift-cards": "dev-master",
+    "wpackagist-plugin/better-wp-security": "^8.0",
+    "wpackagist-plugin/wps-hide-login": "^1.8",
+    "wpackagist-plugin/woocommerce-products-filter": "1.2.6.4",
+    "wpackagist-plugin/wc-variations-radio-buttons": "^2.0",
+    "wpackagist-plugin/flexible-shipping-ups": "^1.15",
+    "devgeniem/wp-redis-object-cache-dropin": "^1.6",
+    "platformsh/config-reader": "^2.4",
+    "wpackagist-plugin/myworks-woo-sync-for-quickbooks-online": "^2.4",
+    "wpackagist-plugin/wordpress-importer": "^0.7.0",
+    "wpackagist-plugin/advanced-nocaptcha-recaptcha": "^6.1",
+    "me/facebook-for-woocommerce": "dev-dev",
+    "wpackagist-plugin/print-invoices-packing-slip-labels-for-woocommerce": "^2.8",
+    "wpackagist-plugin/woo-extra-flat-rate": "^4.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5.8",
+    "roave/security-advisories": "dev-master"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "web/app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
+    },
+    "violinist": {
+      "branch_prefix": "violinist/",
+      "assignees": [
+        "4007004"
+      ],
+      "commit_message_convention": "conventional",
+      "default_branch": "dev",
+      "one_pull_request_per_package": 1
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}

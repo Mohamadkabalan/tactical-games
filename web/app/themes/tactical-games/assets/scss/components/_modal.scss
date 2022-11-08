@@ -1,0 +1,13 @@
+.modal {
+    &__btn-close {
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+    &-header {
+        padding: 2rem;
+    }
+    &-body {
+        padding: 2rem;
+    }
+}

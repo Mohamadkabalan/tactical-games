@@ -1,0 +1,43 @@
+.btn {
+    text-transform: uppercase;
+    font-weight: $font-bold;
+    &-primary {
+        color: $white;
+        &:hover {
+            color: $white;
+        }
+    }
+    &-outline-primary {
+        &:hover {
+            color: $white;
+        }
+    }
+}
+
+
+.button {
+    border-radius: 0 !important;
+    font-size: $font-md !important;
+    &.product_type_variable, &.product_type_simple {
+        background-color: $primary !important;
+        color: $white !important;
+        &:hover {
+            background-color: darken($primary, 5%) !important;
+        }
+
+
+        &.add_to_cart_button {
+        }
+    }
+}
+
+%wc-button {
+    padding: $input-btn-padding-y $input-btn-padding-x !important;
+    border-radius: 0 !important;
+    background-color: $primary !important;
+    color: $white;
+    &:hover {
+        background-color: darken($primary, 5%) !important;
+        color: $white;
+    }
+}

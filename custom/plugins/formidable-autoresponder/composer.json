@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-autoresponder",
+    "description": "Formidable Autoresponder",
+    "type": "wordpress-plugin",
+    "require": {}
+}

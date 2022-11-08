@@ -1,0 +1,17 @@
+<div class="highlighted-links">
+    <div class="container-xxl">
+        <div class="row gx-3 justify-content-center">
+            {% for item in fields.links %}
+            <div class="col-6 col-md-4">
+                {% set image = Image(Post(item.link).thumbnail) %}
+                <a href="{{ Post(item.link).link }}" class="highlighted-links__item"
+                    style="background-image: url({{ image.src|resize(1000,1000) }});">
+                    <div class="highlighted-links__link">
+                        <p class="highlighted-links__title">{{ Post(item.link).title }}</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

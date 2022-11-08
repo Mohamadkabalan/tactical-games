@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-locations",
+    "description": "Formidable Locations",
+    "type": "wordpress-plugin",
+    "require": {}
+}

@@ -1,0 +1,27 @@
+{#
+/**
+* Block Name: Example block
+*
+* This is the template that displays the example block.
+*/
+#}
+
+{% if is_preview %}
+<p>This is a basic hero.</p>
+{% endif %}
+
+
+{% if post.thumbnail.src %}
+<div class="hero" style="background-image: url({{ post.thumbnail.src|resize(2000) }});">
+	{% else %}
+	<div class="hero hero__placeholder"
+		style="background-image: url({{ theme.link }}/assets/images/event-hero-placeholder.jpg);">
+		{% endif %}
+		<div class="hero__title-wrapper">
+			<div class="hero__title hero__title--skew">
+				<span>{{ Post('title') }}</span>
+			</div>
+		</div>
+	</div>
+
+	{{ Post('thumbnail') }}

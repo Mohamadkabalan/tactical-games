@@ -1,0 +1,42 @@
+{#
+/**
+* Block Name: Example block
+*
+* This is the template that displays the example block.
+*/
+#}
+
+{% if is_preview %}
+<p>I will only appear in the editor.</p>
+{% endif %}
+
+
+<div class="title-text-button" style="background-image: url({{fields.background_image}});">
+    <div class="title-text-button__separator-top">
+        {% include "utilities/separator.twig" %}
+    </div>
+    <div class="title-text-button__wrapper">
+        <div class="container-xl">
+            <div class="row">
+                <div class="col">
+                    <h2 class="title-text-button__title">{{ fields.title}}</h2>
+
+                    <p class="title-text-button__text">{{ fields.text}}</p>
+
+                    <ul class="title-text-button__buttons">
+                        {% for item in fields.buttons %}
+                        <li>
+                            <a href="{{item.button.url}}" target="{{item.button.target}}" class="btn btn-primary">{{item.button.title}}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="title-text-button__separator-bottom">
+        {% include "utilities/separator.twig" %}
+    </div>
+</div>

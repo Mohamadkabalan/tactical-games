@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-export-view",
+    "description": "Formidable Export View",
+    "type": "wordpress-plugin",
+    "require": {}
+}

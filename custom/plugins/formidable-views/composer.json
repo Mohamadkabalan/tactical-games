@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-views",
+    "description": "Formidable Views",
+    "type": "wordpress-plugin",
+    "require": {}
+}

@@ -1,0 +1,61 @@
+.training-programs {
+    padding: 5rem 0;
+    background: $gray-900;
+    &__modal {
+        &-instructor {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $gray-300;
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 60px;
+                margin-right: 0.5rem;
+            }
+            &-name {
+                display: inline-block;
+                vertical-align: middle;
+                p {
+                    margin-bottom: 0;
+                    font-weight: 900;
+                    margin-top: -0.5rem;
+                }
+                span {
+                    color: $gray-700;
+                    font-weight: normal;
+                }
+            }
+        }
+        &-price {
+            font-weight: 900;
+        }
+        &-levels {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid $gray-300;
+            p {
+                margin-bottom: 0;
+            }
+            &-selected {
+                font-weight: 900;
+            }
+        }
+    }
+    .highlighted-links__title {
+        font-size: 2rem;
+    }
+    &__title {
+        color: $white;
+        text-align: center;
+    }
+    &__description {
+        color: $white;
+        text-align: center;
+    }
+
+    .read-more {
+        display: none;
+    }
+}

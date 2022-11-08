@@ -1,0 +1,23 @@
+<div class="event-schedule py-5 bg-white">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-md-auto pe-md-5">
+                <h3 class="event-schedule__title">Schedule</h3>
+            </div>
+            <div class="col-md">
+                {% for item in fields.schedule_items %}
+                <div class="event-schedule__item">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p class="event-schedule__item-title">{{ item.title }}</p>
+                        </div>
+                        <div class="col">
+                            <p class="event-schedule__item-description">{{ item.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

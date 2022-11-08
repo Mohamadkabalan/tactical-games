@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% do action('woocommerce_before_single_product') %}
+
+    <article itemscope itemtype="http://schema.org/Product" class="wc-single-product wc-event-product {{ post.class }}">
+        <div class="wc-single-product__body">
+            <div class="container-xl px-4">
+                <div class="row gx-5">
+                    <div class="col-md-12">
+                        <div class="wc-single-product__summary">
+                            {% if post.thumbnail.src %}
+                              <img src="{{ post.thumbnail.src('large') }}" id="main-image" class="event-product-hero" />
+                            {% endif %}
+                            {% do action('woocommerce_single_product_summary') %}
+                        </div>
+                    </div>
+                </div>
+                <meta itemprop="url" content="{{ post.link }}" />
+            </div>
+        </div>
+        <div class="wc-single-product__related">
+            {% do action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15) %}
+        </div>
+    </article>
+
+    {% do action('woocommerce_after_single_product') %}
+
+{% endblock  %}

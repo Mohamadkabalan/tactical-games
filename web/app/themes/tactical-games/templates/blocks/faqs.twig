@@ -1,0 +1,26 @@
+{% if is_preview %}
+	<p>Frequent Asked Questions</p>
+{% endif %}
+
+<div class="faqs py-5 bg-secondary-dark">
+	<div class="container-xl">
+  <h3 class="text-white text-center mb-5">FAQs</h3>
+		<div class="accordion accordion-flush" id="accordionFaqs">
+			{% for key, item in faqs %}
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="faqsHeading-{{ key }}">
+						<button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ key }}" aria-expanded="false" aria-controls="collapse-{{ key }}">
+							{{ item.title }}
+						</button>
+					</h2>
+					<div id="collapse-{{ key }}" class="accordion-collapse collapse" aria-labelledby="faqsHeading-{{ key }}" data-bs-parent="#accordionFaqs">
+						<div class="accordion-body">
+							{{ item.content }}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+	</div>
+</div>

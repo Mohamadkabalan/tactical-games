@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-pro",
+    "description": "Formidable Pro",
+    "type": "wordpress-plugin",
+    "require": {}
+}

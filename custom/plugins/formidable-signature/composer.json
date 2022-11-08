@@ -1,0 +1,6 @@
+{
+    "name": "me/formidable-signature",
+    "description": "Formidable Signature",
+    "type": "wordpress-plugin",
+    "require": {}
+}

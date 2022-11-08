@@ -1,0 +1,52 @@
+{% if is_preview %}
+	<p>Add Divisions</p>
+{% endif %}
+<div class="divisions">
+  {% if fields.title or fields.description %}
+  <div class="container-xl text-center">
+          {% if fields.title %}
+              <h3 class="divisions__title">{{ fields.title }}</h3>
+          {% endif %}
+          {% if fields.description %}
+              <div class="text-center">{{ fields.description }}</div>
+          {% endif %}
+  </div>
+  {% endif %}
+
+	<div class="highlighted-links">
+		<div class="container-xxl">
+			<div class="row gx-3 justify-content-center">
+				{% for key, item in divisions %}
+					<div class="col-6 col-md-4">
+            {% if item.thumbnail.src %}
+            <a href="{{ item.link }}" class="highlighted-links__item" style="background-image: url({{ item.thumbnail.src('large') }});" data-bs-toggle="modal" data-bs-target="#divisionContentModal{{item.id }}">
+            {% else %}
+            <a href="{{ item.link }}" class="highlighted-links__item" style="background-image: url({{ theme.link }}/assets/images/division-placeholder.jpg);" data-bs-toggle="modal" data-bs-target="#divisionContentModal{{item.id }}">
+            {% endif %}
+                <div class="highlighted-links__link">
+                    <p class="highlighted-links__title">{{ item.title }}</p>
+                </div>
+            </a>
+
+            <div class="modal fade" id="divisionContentModal{{ item.id }}" tabindex="-1" aria-labelledby="divisionContentModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="divisionContentModalLabel">{{ item.title }}</h5>
+                    <button type="button" class="modal__btn-close" data-bs-dismiss="modal" aria-label="Close">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    {{item.content}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>

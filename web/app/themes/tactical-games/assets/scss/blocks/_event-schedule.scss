@@ -1,0 +1,19 @@
+.event-schedule {
+    &__title {
+        color: $secondary;
+    }
+    &__item {
+        padding: 1.5rem;
+        background: $gray-100;
+        &:nth-child(even) {
+            background: $gray-200;
+        }
+        &-title {
+            font-weight: $font-heavy;
+            margin-bottom: 0;
+        }
+        &-description {
+            margin-bottom: 0;
+        }
+    }
+}

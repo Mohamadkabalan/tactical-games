@@ -1,0 +1,48 @@
+%form-control {
+    padding: $input-btn-padding-y $input-btn-padding-x;
+    border-radius: 0;
+    border: 1px solid $gray-300;
+}
+
+%form-control-sm {
+    padding: $input-btn-padding-y-sm $input-btn-padding-x-sm !important;
+    border-radius: 0 !important;
+    border: 1px solid $gray-300 !important;
+}
+
+%form-control-button {
+    padding: $input-btn-padding-y $input-btn-padding-x;
+}
+
+
+.frm_forms {
+    input[type*=text], input[type*=email], input[type*=number], input[type*=tel], select {
+        @extend %form-control-sm;
+    }
+    .frm_radio, .frm_checkbox {
+        margin-right: 1rem !important;
+        label {
+            box-shadow: none !important;
+            --box-shadow: none !important;
+            display: flex !important;
+            align-items: center;
+            padding-left: 0 !important;
+            input {
+                width: 1.25rem !important;
+                height: 1.25rem !important;
+                margin: 0 0.5rem 0 0!important;
+                &:hover, &:focus, &:focus:hover {
+                    box-shadow: none !important;
+                    --box-shadow: none !important;
+                }
+            }
+        }
+    }
+    .frm_primary_label, .frm_radio label, .frm_checkbox label {
+        font-size: 1rem;
+        font-family: $mulish !important;
+    }
+    .frm_primary_label {
+        font-weight: $font-bold;
+    }
+}
